@@ -23,7 +23,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 //@route POST api/auth
-//@desc Authenticate user and get town
+//@desc Authenticate user and get token
 // @ access public
 
 router.post(
