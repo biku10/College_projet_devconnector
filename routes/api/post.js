@@ -50,7 +50,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 //@route GET api/posts/:id
-//@desc Get  post by id
+//@desc Get  post by id for individual posts
 //@access value private
 
 router.get('/:id', auth, async (req, res) => {

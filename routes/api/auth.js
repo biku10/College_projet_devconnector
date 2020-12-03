@@ -23,7 +23,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 //@route POST api/auth
-//@desc Authenticate user and get token
+//@desc Authenticate user and get token(login)
 // @ access public
 
 router.post(
@@ -32,39 +32,30 @@ router.post(
     check('email', 'Please include a valid email').isEmail(),
     check('password', 'Password is required').exists(),
   ],
-
   async (req, res) => {
     const errors = validationResult(req);
-
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
     const { email, password } = req.body; //destructured
-
     try {
       let user = await User.findOne({ email });
-
       if (!user) {
         return res
           .status(400)
           .json({ errors: [{ msg: 'Invalid Credentials' }] });
       }
-
       const isMatch = await bcrypt.compare(password, user.password);
-
       if (!isMatch) {
         return res
           .status(400)
           .json({ errors: [{ msg: 'Invalid Credentials' }] });
       }
-
       const payload = {
         user: {
           id: user.id,
         },
       };
-
       jwt.sign(
         payload,
         config.get('jwtSecret'),

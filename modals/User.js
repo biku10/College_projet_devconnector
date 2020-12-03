@@ -25,4 +25,4 @@ const UserSchema = new mongoose.Schema({
 //avatar is from node module gravatar, It helps us to set default profile images
 
 module.exports = mongoose.model('user', UserSchema);
-//ithe apan chukun model chya jagi modelNames lihila jota. that was the
+//ithe apan chukun model chya jagi modelNames lihila Hota. that was the

@@ -6,7 +6,7 @@ const app = express(); //initializing app variable with express
 //lets connect database
 connectDB();
 
-//initializing Parser
+//initializing Parser Old= body parser, New= express khudka parser diya hai
 app.use(express.json());
 
 //Define Routes

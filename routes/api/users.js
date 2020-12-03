@@ -55,9 +55,9 @@ router.post(
         password,
       });
 
-      const salt = await bcrypt.genSalt(10);
+      const salt = await bcrypt.genSalt(10); //encryption ka type
 
-      user.password = await bcrypt.hash(password, salt);
+      user.password = await bcrypt.hash(password, salt); //password pe encryption apply kiya
 
       await user.save();
       const payload = {
@@ -65,7 +65,8 @@ router.post(
           id: user.id,
         },
       };
-
+      //signup ke baad aage bheja,
+      //json web token
       jwt.sign(
         payload,
         config.get('jwtSecret'),

@@ -29,6 +29,8 @@ router.get('/me', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+
 //@route POST api/profile/me
 //@desc Create or update the user profile
 //@access value Private
@@ -121,7 +123,7 @@ router.get('/', async (req, res) => {
 });
 
 //@route GET api/profile/user/:user_id
-//@desc get specific profile by userid
+//@desc get specific profile by useridprofile pe click karne ke baad profile load karne keliye
 //@access value Public
 
 router.get('/user/:user_id', async (req, res) => {
@@ -302,7 +304,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 });
 
 //@route Get api/profile/github/:username
-//@desc get user repos from github
+//@desc get user repos from github github integrate & display 5 latest repos
 //public
 router.get('/github/:username', async (req, res) => {
   try {
